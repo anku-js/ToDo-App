@@ -14,11 +14,17 @@ function App() {
       setTask("");
     }
   };
+  const deleteTask = (deleted) => {
+    const filteredTask = taskList.filter((task) => {
+      return task !== deleted;
+    });
+    setTaskList(filteredTask);
+  };
   return (
     <div className="app">
       <h1>To Do App</h1>
       <TaskInput task={task} setTask={setTask} addTask={addTask} />
-      <TaskList taskList={taskList}/>
+      <TaskList taskList={taskList} deleteTask={deleteTask}/>
     </div>
   );
 }

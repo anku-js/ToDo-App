@@ -1,0 +1,106 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  background: #232a39;
+  min-height: 100vh;
+}
+.app {
+  margin: 20px auto;
+  padding: 1rem;
+  max-width: 50%;
+  text-align: center;
+  background: #333;
+  background-color: #14171f;
+  box-shadow: #00000040 0px 2px 5px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  font-family: "Poppins", sans-serif;
+}
+
+
+h1 {
+  font-weight: 500;
+  color: #44c0b6;
+  font-size: 2.5rem;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+}
+.task-input-wrapper {
+  margin: 3.5rem;
+}
+
+.task-list {
+  margin-bottom: 2.5rem;
+}
+.task {
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+input {
+  width: 450px;
+  padding: 0.8em;
+}
+
+input:focus {
+  outline: none;
+}
+textarea:focus, input:focus {
+  color: #fff;
+}
+
+button {
+  width: 120px;
+  padding: 0.8em;
+  cursor: pointer;
+  font-weight: 400;
+  letter-spacing: 0.1rem;
+}
+
+input,
+button {
+  font-size: 1em;
+  appearance: none;
+  color: currentcolor;
+  background: transparent;
+  border: 1px solid #828691;
+}
+.add-button {
+  color: #44c0b6;
+  border-left: none;
+}
+
+.delete-button {
+  font-family: "Poppins", sans-serif;
+  color: #fe6a6a;
+}
+ul {
+  padding: 0;
+  list-style: none;
+  margin-bottom: 0px;
+}
+
+li {
+  font-size: 1em;
+  width: 450px;
+  padding: 0.85em;
+  text-align: left;
+  margin-bottom: 0.5rem;
+  background: #494847;
+  letter-spacing: 0.02rem;
+  transition: all 0.3s ease-out;
+  border-left: 5px solid #cf972e;
+}
+
+li:last-child {
+  margin-bottom: 0px;
+}
+.no-task {
+  font-size: 20px;
+  font-weight: 400;
+  color: #cf972e;
+  letter-spacing: 0.2rem;
+}
