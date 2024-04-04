@@ -1,30 +1,47 @@
 import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
+
+import {
+  addTodo,
+  deleteTodo,
+  toggleTodoCompletion,
+} from "./features/Todos/todosSlice";
+import { useAppSelector, useAppDispatch } from "./app/hooks";
+import TodoInput from "./components/TodoInput";
+import Todos from "./components/Todos";
 import "./App.css";
-import TaskInput from "./components/TaskInput";
-import TaskList from "./components/Tasklist";
 
 function App() {
-  const [task, setTask] = useState("");
-  const [taskList, setTaskList] = useState([]);
+  const dispatch = useAppDispatch();
+  const [todo, setTodo] = useState("");
+  const todos = useAppSelector((state) => state.todos.todos);
 
-  // addTask function adds the new task in taskList when add button is clicked and if input field is not empty. It makes the input field empty after adding the task
   const addTask = () => {
-    if (task !== "") {
-      setTaskList([...taskList, task]);
-      setTask("");
+    if (todo !== "") {
+      dispatch(
+        addTodo({ id: uuidv4(), todoName: todo, isTodoCompleted: false })
+      );
+      setTodo("");
     }
   };
-  const deleteTask = (deleted) => {
-    const filteredTask = taskList.filter((task) => {
-      return task !== deleted;
-    });
-    setTaskList(filteredTask);
+
+  const deleteTask = (id: string) => {
+    dispatch(deleteTodo(id));
   };
+
+  const handleCheckboxClick = (id: string) => {
+    dispatch(toggleTodoCompletion(id));
+  };
+
   return (
     <div className="app">
       <h1>To Do App</h1>
-      <TaskInput task={task} setTask={setTask} addTask={addTask} />
-      <TaskList taskList={taskList} deleteTask={deleteTask}/>
+      <TodoInput todo={todo} setTodo={setTodo} addTask={addTask} />
+      <Todos
+        todos={todos}
+        deleteTask={deleteTask}
+        handleCheckboxClick={handleCheckboxClick}
+      />
     </div>
   );
 }

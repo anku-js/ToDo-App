@@ -18,7 +18,6 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
-
 h1 {
   font-weight: 500;
   color: #44c0b6;
@@ -26,33 +25,35 @@ h1 {
   letter-spacing: 0.2rem;
   text-transform: uppercase;
 }
-.task-input-wrapper {
+.todo-input-wrapper {
   margin: 3.5rem;
 }
 
-.task-list {
+.todo-list {
   margin-bottom: 2.5rem;
 }
-.task {
+.todo {
   color: #fff;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
 }
 
-input {
+.todo-input {
   width: 450px;
   padding: 0.8em;
 }
 
-input:focus {
+.todo-input:focus {
   outline: none;
 }
-textarea:focus, input:focus {
+textarea:focus,
+.todo-input:focus {
   color: #fff;
 }
 
-button {
+.add-button,
+.delete-button {
   width: 120px;
   padding: 0.8em;
   cursor: pointer;
@@ -60,8 +61,9 @@ button {
   letter-spacing: 0.1rem;
 }
 
-input,
-button {
+.todo-input,
+.add-button,
+.delete-button {
   font-size: 1em;
   appearance: none;
   color: currentcolor;
@@ -81,26 +83,41 @@ ul {
   padding: 0;
   list-style: none;
   margin-bottom: 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-li {
+.todo-name {
   font-size: 1em;
   width: 450px;
   padding: 0.85em;
   text-align: left;
-  margin-bottom: 0.5rem;
   background: #494847;
   letter-spacing: 0.02rem;
   transition: all 0.3s ease-out;
   border-left: 5px solid #cf972e;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
-li:last-child {
-  margin-bottom: 0px;
+.todo-name.completed {
+  background: green;
+  opacity: 0.5;
 }
-.no-task {
+
+.no-todo {
   font-size: 20px;
   font-weight: 400;
   color: #cf972e;
   letter-spacing: 0.2rem;
+}
+.completion-checkbox {
+  margin-right: 10px;
+  height: 30px;
+  width: 30px;
+}
+.completion-checkbox.completed {
+  fill: green;
 }
