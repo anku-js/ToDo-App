@@ -23,7 +23,6 @@ export const todosSlice = createSlice({
         state.todos = state.todos.filter( todo => todo.id !== action.payload)
     },
     toggleTodoCompletion: (state, action: PayloadAction<string>) => {
-        console.log("ddddd", action)
         state.todos = state.todos.map( todo => {
             if(todo.id === action.payload) {
                 return {
@@ -34,6 +33,7 @@ export const todosSlice = createSlice({
                 return todo
             }
         })
+        localStorage.setItem("todos", JSON.stringify(state.todos))
     },
   }
 });
